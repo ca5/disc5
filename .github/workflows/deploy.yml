@@ -32,12 +32,15 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: npm run build > build.log 2>&1 || true
         env:
           NEXT_PUBLIC_SPREADSHEET_ID: ${{ vars.NEXT_PUBLIC_SPREADSHEET_ID }}
           NEXT_PUBLIC_WORKS_GID: ${{ vars.NEXT_PUBLIC_WORKS_GID }}
           NEXT_PUBLIC_DISCOGRAPHY_GID: ${{ vars.NEXT_PUBLIC_DISCOGRAPHY_GID }}
           GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
+
+      - name: Show build log
+        run: cat build.log
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
