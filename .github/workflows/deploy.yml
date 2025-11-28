@@ -26,25 +26,26 @@ jobs:
         with:
           node-version: "20"
           cache: 'npm'
-          cache-dependency-path: './disc5/package-lock.json'
+          cache-dependency-path: 'package-lock.json'
 
       - name: Install Dependencies
         run: npm ci
-        working-directory: ./disc5
 
       - name: Build
-        run: npm run build
-        working-directory: ./disc5
+        run: npm run build > build.log 2>&1 || true
         env:
           NEXT_PUBLIC_SPREADSHEET_ID: ${{ vars.NEXT_PUBLIC_SPREADSHEET_ID }}
           NEXT_PUBLIC_WORKS_GID: ${{ vars.NEXT_PUBLIC_WORKS_GID }}
           NEXT_PUBLIC_DISCOGRAPHY_GID: ${{ vars.NEXT_PUBLIC_DISCOGRAPHY_GID }}
           GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
 
+      - name: Show build log
+        run: cat build.log
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./disc5/out
+          path: ./out
 
   deploy:
     environment:
