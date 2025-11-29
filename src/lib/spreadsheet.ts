@@ -6,12 +6,7 @@ import { GoogleAuth } from 'google-auth-library';
 import { Writable } from 'stream';
 
 // Type definitions
-export type WorkItem = {
-    title: string;
-    description: string;
-    type: 'soundcloud' | 'youtube';
-    src: string;
-};
+
 
 export type DiscographyItem = {
     title: string;
@@ -29,7 +24,7 @@ export type DiscographyData = {
 // Environment variables for configuration
 const SPREADSHEET_PUB_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID || '';
 const CSV_URL = process.env.NEXT_PUBLIC_CSV_URL || '';
-const WORKS_GID = process.env.NEXT_PUBLIC_WORKS_GID || '0';
+
 const DISCOGRAPHY_GID = process.env.NEXT_PUBLIC_DISCOGRAPHY_GID || '0';
 
 function getCsvUrl(gid: string): string {
@@ -52,7 +47,7 @@ function getCsvUrl(gid: string): string {
     return `https://docs.google.com/spreadsheets/d/${SPREADSHEET_PUB_ID}/export?format=csv&gid=${gid}`;
 }
 
-const WORKS_CSV_URL = getCsvUrl(WORKS_GID);
+
 const DISCOGRAPHY_CSV_URL = getCsvUrl(DISCOGRAPHY_GID);
 
 /**
@@ -90,16 +85,7 @@ async function fetchAndParseCsv<T>(url: string): Promise<T[]> {
     }
 }
 
-// Fetches and parses the 'works' sheet
-export const getWorks = async (): Promise<WorkItem[]> => {
-    const works = await fetchAndParseCsv<WorkItem>(WORKS_CSV_URL);
-    return works
-        .filter(item => item.title && item.src)
-        .map(item => ({
-            ...item,
-            type: item.type === 'youtube' ? 'youtube' : 'soundcloud',
-        }));
-};
+
 
 // Fetches and parses the 'discography' sheet
 export const getDiscography = async (): Promise<DiscographyData> => {
