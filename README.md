@@ -21,11 +21,14 @@
         *   **方法B: リンク共有**
             *   共有ボタン > 一般的なアクセス > 「リンクを知っている全員」に変更します。
             *   ブラウザのURLバーにあるID（`/d/`と`/edit`の間にある文字列）をコピーしておきます。
-4.  **環境変数の設定**: GitHubリポジトリの Settings > Secrets and variables > Actions > Variables に以下を設定します:
+4.  **環境変数の設定**: GitHubリポジトリの `Settings > Secrets and variables > Actions` に移動し、`Repository variables` に以下を設定します:
+    *   `NEXT_PUBLIC_PAGE_TITLE`: ページタイトル
+    *   `NEXT_PUBLIC_PAGE_DESCRIPTION`: ページの説明文
     *   `NEXT_PUBLIC_SPREADSHEET_ID`:
         *   **方法Aの場合**: 「ウェブに公開」で発行されたURL全体、またはその中の長いID（`2PACX...`）を設定します。
         *   **方法Bの場合**: スプレッドシートのID（`1Kg...` など）を設定します。
     *   `NEXT_PUBLIC_DISCOGRAPHY_GID`: `discography` タブのGID。
+    *   `NEXT_PUBLIC_BASE_PATH`: (任意) GitHub Pagesで `https://<user>.github.io/<repo>/` のようにサブディレクトリにデプロイする場合に設定します。このリポジトリの場合は `/disc5` が設定されています。CNAMEを設定して独自ドメインでホスティングする場合は不要です。
 5.  **Google Drive画像の利用 (任意)**:
     *   Google Drive上の画像をビルド時にダウンロードして使用したい場合は、サービスアカウントが必要です。
     *   Google Cloud Consoleでサービスアカウントを作成し、Google Drive APIを有効化します。

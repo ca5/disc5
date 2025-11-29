@@ -167,8 +167,8 @@ export const getDiscography = async (): Promise<DiscographyData> => {
 
                 await fs.writeFile(localPath, buffer);
 
-                // Manually prepend the asset prefix for production builds on GitHub Pages
-                const assetPrefix = process.env.NODE_ENV === 'production' ? '/disc5' : '';
+                // Manually prepend the asset prefix, which is controlled by an environment variable.
+                const assetPrefix = process.env.NEXT_PUBLIC_BASE_PATH || '';
                 item.imageUrl = `${assetPrefix}/img/googledrive/${filename}`;
 
             } catch (error) {
