@@ -17,6 +17,8 @@
             *   共有ボタン > 一般的なアクセス > 「リンクを知っている全員」に変更します。
             *   ブラウザのURLバーにあるID（`/d/`と`/edit`の間にある文字列）をコピーしておきます。
 4.  **環境変数の設定**: GitHubリポジトリの `Settings > Secrets and variables > Actions` に移動し、`Repository variables` に以下を設定します:
+    *   `NEXT_PUBLIC_PAGE_TITLE`: ページタイトル
+    *   `NEXT_PUBLIC_PAGE_DESCRIPTION`: ページの説明文
     *   `NEXT_PUBLIC_SPREADSHEET_ID`:
         *   **方法Aの場合**: 「ウェブに公開」で発行されたURL全体、またはその中の長いID（`2PACX...`）を設定します。
         *   **方法Bの場合**: スプレッドシートのID（`1Kg...` など）を設定します。
