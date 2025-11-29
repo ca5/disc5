@@ -60,8 +60,7 @@ const DISCOGRAPHY_CSV_URL = getCsvUrl(DISCOGRAPHY_GID);
  */
 async function fetchAndParseCsv<T>(url: string): Promise<T[]> {
     if (!SPREADSHEET_PUB_ID && !CSV_URL) {
-        console.warn('NEXT_PUBLIC_SPREADSHEET_ID is not set. Returning empty data.');
-        return [];
+        throw new Error('NEXT_PUBLIC_SPREADSHEET_ID is not set. Build cannot proceed.');
     }
 
     try {
