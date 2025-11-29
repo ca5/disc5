@@ -21,7 +21,7 @@
         *   **方法Aの場合**: 「ウェブに公開」で発行されたURL全体、またはその中の長いID（`2PACX...`）を設定します。
         *   **方法Bの場合**: スプレッドシートのID（`1Kg...` など）を設定します。
     *   `NEXT_PUBLIC_DISCOGRAPHY_GID`: `discography` タブのGID。
-    *   `NEXT_PUBLIC_BASE_PATH`: (任意) GitHub Pagesで `https://<user>.github.io/<repo>/` のようにサブディレクトリにデプロイする場合に設定します。このリポジトリの場合は `/disc5` を設定してください。CNAMEを設定して独自ドメインでホスティングする場合は不要です。
+    *   `NEXT_PUBLIC_BASE_PATH`: (任意) GitHub Pagesで `https://<user>.github.io/<repo>/` のようにサブディレクトリにデプロイする場合に設定します。このリポジトリの場合は `/disc5` が設定されています。CNAMEを設定して独自ドメインでホスティングする場合は不要です。
 5.  **Google Drive画像の利用 (任意)**:
     *   Google Drive上の画像をビルド時にダウンロードして使用したい場合は、サービスアカウントが必要です。
     *   Google Cloud Consoleでサービスアカウントを作成し、Google Drive APIを有効化します。
