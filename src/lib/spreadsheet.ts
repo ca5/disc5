@@ -166,7 +166,10 @@ export const getDiscography = async (): Promise<DiscographyData> => {
                 const localPath = path.join(imageDir, filename);
 
                 await fs.writeFile(localPath, buffer);
-                item.imageUrl = `/img/googledrive/${filename}`;
+
+                // Manually prepend the asset prefix, which is controlled by an environment variable.
+                const assetPrefix = process.env.NEXT_PUBLIC_BASE_PATH || '';
+                item.imageUrl = `${assetPrefix}/img/googledrive/${filename}`;
 
             } catch (error) {
                 console.error(`Failed to download image for "${item.title}" (URL: ${item.imageUrl}):`, error);
