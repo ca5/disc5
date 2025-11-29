@@ -3,7 +3,7 @@
 このプロジェクトは、アーティストがGoogleスプレッドシートでデータを管理し、GitHub Pagesでホスティングできるディスコグラフィーページ生成ツールです。
 
 
-** サンプル **
+**サンプル**
 * 生成ページ: https://ca5.github.io/disc5/
 * 管理シート: https://docs.google.com/spreadsheets/d/1SenzmEajHVNj08tiYPaPoWS3vZRfZdmUGUkFXIo09WI/edit?gid=0#gid=0
 
